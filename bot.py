@@ -71,19 +71,6 @@ def message(payload):
     if BOT_ID != user_id:
         client.chat_postMessage(channel=channel_id,text=text)
 
-    if user_id != None and BOT_ID != user_id:
-        if user_id in message_counts:
-            message_counts[user_id] += 1
-        else:
-            message_counts[user_id] = 1
-    #
-    #     if text.lower() == 'start':
-    #         send_welcome_message(f'@{user_id}', user_id)
-    #     elif check_if_bad_words(text):
-    #         ts = event.get('ts')
-    #         client.chat_postMessage(
-    #             channel=channel_id, thread_ts=ts, text="THAT IS A BAD WORD!")
-
 @ app.route('/message-count', methods=['POST'])
 def message_count():
     data = request.form
